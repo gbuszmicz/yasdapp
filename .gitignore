@@ -1,0 +1,11 @@
+# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules
+env/development.json
+env/production.json
+npm-debug.log
+DETAILS.md

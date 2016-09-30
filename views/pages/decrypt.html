@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/header.html %>
+  </head>
+  <body class="decrypt">
+    <style>
+      div.progress {
+        width: 83%;
+        margin: 0;
+        border: 0.15rem solid #ddd;
+        -webkit-border-radius: .9375rem;
+        border-radius: .9375rem;
+        background-color: #fff;
+        height: 2.18rem;
+        line-height: 2.18rem;
+        margin: 3px 0 3px 0;
+        display: inline-block;
+      }
+      div.actions {
+        float: right;
+        margin-top: .3rem;
+        display: none;
+      }
+      div.actions a {
+        font-size: 1.3rem;
+        color: rgba(7, 109, 140, 1);
+        text-decoration: underline;
+        font-weight: 600;
+      }
+      .passphrase {
+        margin: 5rem auto 1rem;
+      }
+    </style>
+    <div class="page-wrapper">
+      <div class="hidden alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%- __('pages.compatibility') %>
+      </div>
+  		<div class="container">
+  		  <fieldset class="row success-message">
+  		    <div class="col-xs-12 success-remove-icon">
+  		      <figure class="fa fa-bomb"></figure>
+  		    </div>
+  		    <div class="col-xs-12 success-remove-text">
+  		      <h2><%- __('pages.decrypt.alerts.removed') %></h2>
+  		    </div>
+  		    <div class="col-xs-12 success-new-messages">
+  		      <a href="/" class="sucess-link"><%= __('pages.decrypt.alerts.secureMore') %></a>
+  		    </div>
+  		  </fieldset>
+  			<fieldset class="row service">
+  			  <div class="col-xs-12">
+            <ul class="encrypted-files">
+            <% for(var i=0; i<locals.files.length; i++) {%>
+               <li class="row" id="<%= files[i]._id  %>">
+                 <div class="col-xs-2 file-icon"><i class="fa fa-file-o"></i></div>
+                 <div class="col-xs-10 file-info">
+                   <div class="file-name"><%= __('pages.decrypt.fileName') %> 
+                     <span><%= files[i]._id  %>.encrypted</span>
+                   </div>
+                   <div class="file-size"><%= __('pages.decrypt.fileSize') %> 
+                     <span><%= fileSizeIEC(files[i].size) %></span>
+                   </div>
+                   <div class="file-type"><%= __('pages.decrypt.fileType') %> 
+                     <span>data/encrypted</span>
+                   </div>
+                 
+                   <div class="download">
+                      <div class="progress waiting">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="actions">
+                        <a class="download-file" href="javascript:;" onClick="saveFile(this);"><%= __('pages.decrypt.download') %></a>
+                     </div>
+                   </div>
+                 </div>
+               </li>
+            <% } %>
+            </ul>
+            <div class="msg-actions">
+              <a class="remove-all-files" href="javascript:;" onClick="removeMessage();"><%= __('pages.decrypt.removeFiles') %></a>
+            </div>
+          </div>
+    			
+          <div class="col-xs-12"> 
+            <div class="form-group passphrase">
+              <p class="error-msg"></p>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <input type="text" ref="password" id="password" maxlength="100" required="" class="form-control" placeholder="<%= __('pages.decrypt.inputBox.passphrasePlaceholder') %>">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12"> 
+            <div class="decrypt-actions">
+              <a class="button process"><i class="fa fa-unlock"></i><%= __('pages.decrypt.btnUnlock') %></a>
+            </div>
+          </div>
+    		
+    		</fieldset>
+    	</div>
+    </div>
+    <% include ../partials/footer.html %>
+    <script>
+      var _msgId = "<%= locals.msgid %>" || null;
+      var _secret = "<%= locals.secret %>" || null;
+      var _interval = false;
+      var locale = "<%= locals.getLocale() %>" || "en";
+      var browser = "<%= locals.compatibility %>"; // check compatible browser
+      if(browser !== 'oka') $('div[role="alert"]').removeClass('hidden');
+    </script>
+    <script type="text/javascript" src="/js/decrypt.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "yasdapp",
+  "version": "0.1.0",
+  "description": "App to secure send a file by email to anyone",
+  "main": "index.js",
+  "scripts": {
+    "build-js": "uglifyjs public/js/decrypt.js -o public/js/decrypt.min.js && uglifyjs public/js/encrypt.js -o public/js/encrypt.min.js && uglifyjs public/js/main.js -o public/js/main.min.js",
+    "build-css": "uglifycss public/css/style.css > public/css/style.min.css"
+  },
+  "dependencies": {
+    "agenda": "^0.7.6",
+    "aws-sdk": "^2.2.27",
+    "body-parser": "^1.14.2",
+    "compression": "^1.6.0",
+    "ejs": "2.3.3",
+    "express": "4.13.3",
+    "express-useragent": "^0.2.4",
+    "http": "0.0.0",
+    "i18n": "^0.7.0",
+    "ipinfo": "^1.2.1",
+    "locale": "0.0.20",
+    "mailgun-js": "^0.7.7",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.3.4",
+    "mongoose-timestamp": "^0.4.0",
+    "morgan": "^1.6.1",
+    "node-taskman": "^1.0.4",
+    "s3-policy": "^0.2.0",
+    "serve-favicon": "^2.3.0",
+    "shortid": "^2.2.4",
+    "validator": "^4.5.1",
+    "winston": "^2.1.1"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "devDependencies": {
+    "uglify-js": "^2.6.1",
+    "uglifycss": "0.0.20"
+  }
+}

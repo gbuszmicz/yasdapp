@@ -1,0 +1,79 @@
+{
+  "errors": {
+    "varNull": "Error checking vars. Looks like one of them is null 8(",
+    "invalidEmail": "It doesn't look like a valid email address",
+    "msgIdNull": "Null message id. This is odd 8(",
+    "404msg": "404 - Message not found",
+    "401": "401 Unauthorized",
+    "403msg": "403 - Forbidden. Message cannot be edited",
+    "401pass": "401 Unauthorized. Passphrase is incorrect"
+  },
+  "pages": {
+    "title": "Yasdapp secure delivery",
+    "compatibility": "<strong>Compatibility issues:</strong> for a <span style='text-decoration: underline;'>better user experience</span> we recommend using this app with <strong>Chrome</strong> or <strong>Firefox</strong> browsers",
+    "encrypt": {
+      "fileBox": {
+        "dropFiles": "Drop your files here, or click to select",
+        "up5": "<small>Up to <strong>5 files</strong>, max <strong>5MB each</strong></small>",
+        "noDuplicates": "<small>Folders and duplicated files are not allowed</small>"
+      },
+      "inputBox": {
+        "emailPlaceholder": "Enter an email address to send this files",
+        "passphrasePlaceholder": "Enter a secure passphrase"
+      },
+      "generateLink": "Generate random passphrase",
+      "buttonLock": "Lock my files",
+      "midHeader": {
+        "yasdapp": "<strong>Y</strong>et <strong>A</strong>nother <strong>S</strong>ecure <strong>D</strong>elivery <strong>App</strong>lication",
+        "slogan": "A <strong>free</strong>, <strong>simple</strong> and <strong>secure</strong> way to send encrypted files to your friends and coworkers"
+      },
+      "alerts": {
+        "successText": "<h2>Your files are now <strong>encrypted</strong> and <strong>secured</strong>!</h2><p>We just sent an email to <span id='email-account'></span> with the link: <a href='#' class='encrypted-files-link'></a></p><p class='encrypted-files-pass'>This passphrase will be needed for decryption: <span></span><br />Do not forget it 'cause there is no way to access your files without it!</p><p>Please don't use the same email address to send the passphrase. Even better, try using another channel like <i>Whatsapp</i>, <i>phone call</i>, <i>SMS</i></p>",
+        "linkGoBack": "Go back and secure more files!"
+      },
+      "about": {
+        "q1_howWorks": "How does it work?",
+        "a1": "It´s really really simple, just follow this steps:<strong>first of all</strong> select the files you want to encrypt (<i>up to 5 so far</i>) and send.<strong>Second of all</strong> enter the email address of the person who will receive this files. <strong>Finally</strong> choose a passphrase for the encryption and click '<i>Lock and send my files</i>' That´s it! Pretty simple, isn´t it? Just <i>don't forget your passphrase</i>! You'll need it later for decryption",
+        "q2_whyUse": "Why should I use it?",
+        "a2": "Most of our <strong>communication channels can be easily accessed by third-parties</strong>, not only government and your Internet provider (ISP), but by your competition and pretty much anyone actually. <strong>Yasdapp</strong> allow you to encrypt sensitive files with a secure cipher, so the only way of access them is knowing the passphrase you've entered",
+        "q3_installSoftware": "Do I need to install additional software?",
+        "a3": "<strong>Nope!</strong> Thats why it is so simple! You don't have no install anything. The encryption happens client-side, in your Web browser. And the best part is that we don't have access to your passphrase because it never leaves your browser, so there is no way for us (or anybody else besides you) to know the contents of your files",
+        "q4_fileDownloaded": "What happen with my files later on after been downloaded?",
+        "a4": "All files are <strong>automatically deleted after 30 days</strong> of been sent. This is a service for deliver your files in the most possible secure way, it is not meant to be storage service like Dropbox or OneDrive or Google Drive. Also <strong>you can delete your files manually whenever you want</strong> entering the right passphrase in the download page",
+        "q5_needObscure": "Do I need to change the file name and extension to make it even more obscure?",
+        "a5": "Don't bother, <strong>we do it for you!</strong>. We generate a <strong>random name</strong> for each of your files. We also change the type to '<i>data/encrypted</i>' and the extension to '<i>.encrypted</i>', so nobody can tell whats in the files if they manage to guess the download page URL. The user have to enter the correct passphrase to see the real properties (name, extension and type) of the files",
+        "q6_downloadAuto": "Does the download page automatically download all the files to anyone accessing it?",
+        "a6": "<strong>Nope</strong>, but that actually wouldn´t be an issue because your files are encrypted. Nevertheless your files get downloaded only if the user enter the right passphrase",
+        "q7_rightPass": "How can you tell if the user have entered or not the right passphrase?",
+        "a7": "Ok, so you are thinking: either the passphrase travels over the Internet or the files get downloaded. Well, neither. Along with all your files <strong>we encrypt a random generated key with your passphrase</strong>. In the download page we try to decrypt this encrypted key with the passphrase the user has entered. Then we compare the resultant decrypted string with the original one we have saved in the encryption step. If its a match we show you the files properties (original name and type) and trigger the downloading. Then we decrypt the files client-side. Cool, isn´t it?",
+        "q8_sendPass": "Is it secure to send the passphrase by email?",
+        "a8": "Well, you could send it by email but please do not use the same email destination account. If you send the files to a Hotmail account try sending the passphrase to a Gmail account for example. Or, even better, you could use SMS or Whatsapps to send it. Or the old fashion way: a phone call",
+        "q9_encryption": "What encryption algorithm does it use?",
+        "a9": "<strong><a href='https://en.wikipedia.org/wiki/Advanced_Encryption_Standard' target='_blank'>AES</a></strong>, also known as <strong>Rijndael</strong> (its original name), with a 256 bits key, which is pretty damn secure!. No effective cryptanalysis of AES cipher is known to date. It's officially recommended by many security agencies (including <strong>NSA</strong>). It's more than enough for most humans! It could take billions of years for a Brute Force attack to find the key to decrypt the original message",
+        "q10_aesKey": "So, AES uses a key instead of a passphrase?",
+        "a10": "As a matter of fact <strong>it does!</strong>. AES is a block cipher that uses an <a href='https://en.wikipedia.org/wiki/Initialization_vector' target='_blank'>initialization vector</a> <strong>(iv)</strong> and a key. We use a <a href='https://en.wikipedia.org/wiki/Pseudorandom_function' target='_blank'>pseudo-random function</a> to generated the <strong>iv</strong>. And for the key we use <a href='https://en.wikipedia.org/wiki/PBKDF2' target='_blank'>PBKDF2</a>, which is a <a href='https://en.wikipedia.org/wiki/Key_derivation_function' target='_blank'>key derivation function</a> that takes your passphrase as input",
+        "q11_passphrase": "What is a passphrase anyway? Don't you mean password?",
+        "a11": "<strong>A password</strong> is typically a single word composed of not more than 10 letters or symbols, or a combination of both. It could be a string of random symbols such as '<strong>N1@3!&O#$</strong>' or just a lousy word like '<strong>password</strong>', or a combination of both such as '<strong>n1nj@!</strong>'. On the other hand, <strong>a passphrase</strong> is longer than a password and contains spaces in between words such as this: '<strong>Ninjas don't wish upon a star, they throw them</strong>'. A passphrase can also contain symbols, and does not have to be a proper sentence or grammatically correct. The main difference of the two is that passwords do not have spaces while passphrases have spaces and are longer than any random string of letters. <a href='https://xkcd.com/936/' target='_blank'>Check it out!</a>"
+      }
+    },
+    "decrypt": {
+      "alerts": {
+        "removed": "This <strong>message</strong> and all its files has been <strong>removed</strong>!",
+        "secureMore": "Go back and secure more files!"
+      },
+      "fileName": "Name:",
+      "fileSize": "Size:",
+      "fileType": "Type:",
+      "download": "Download",
+      "removeFiles": "Remove all files",
+      "btnUnlock": "Unlock my files",
+      "inputBox": {
+        "passphrasePlaceholder": "Enter your passphrase"
+      }
+    },
+    "footer": {
+      "get_in_touch": "Get in touch on Twitter ",
+      "made_in": "Made in <span style='font-weight:700'>ARG</span> by "
+    }
+  }
+}

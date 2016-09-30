@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/header.html %>
+  </head>
+  <body class="encrypt">
+    <div class="page-wrapper">
+      <div class="hidden alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%- __('pages.compatibility') %>
+      </div>
+  		<div class="container">
+  		  <fieldset class="row success-message">
+  		    <div class="col-xs-12 success-icon">
+  		      <figure class="fa fa-cloud-upload"></figure>
+  		    </div>
+  		    <div class="col-xs-12 success-text">
+            <%- __('pages.encrypt.alerts.successText') %>
+            <a href="/" class="sucess-link"><%= __('pages.encrypt.alerts.linkGoBack') %></a>
+          <!-- 
+  		      <h2>Your files are now <strong>encrypted</strong> and <strong>secured</strong>!</h2>
+  		      <p>We just sent an email to <span id='email-account'></span> with the link:
+  		        <a href='#' class='encrypted-files-link'></a>
+  		      </p>
+            <p class='encrypted-files-pass'>This passphrase will be needed for decryption: <span></span><br />Do not forget it 'cause there is no way to access your files without it!</p>
+            <p>Please don't use the same email address to send the passphrase. Even better, try using another channel like <i>Whatsapp</i>, <i>phone call</i>, <i>SMS</i></p>
+  		    </div>
+  		    <div class="col-xs-12 success-new-messages">
+  		      <a href="/" class="sucess-link">Go back and secure more files!</a>
+           -->
+  		    </div>
+  		  </fieldset>
+  			<fieldset class="row service">
+  			  <div class="col-xs-12">
+  			    <div class="upload">
+  			      <figure class="fa fa-download"></figure>
+              <p><%- __('pages.encrypt.fileBox.dropFiles') %></p>
+              <p><%- __('pages.encrypt.fileBox.up5') %></p>
+              <p class="smaller"><%- __('pages.encrypt.fileBox.noDuplicates') %></p>
+              <p class="error-messages"></p>
+              <p class="sub-error-messages"></p>
+  			    </div>
+  			  </div>
+  			  
+  			  <div class="col-xs-12">
+  			    <div class="results">
+  			      <ul id="output-list"></ul>
+  			    </div>
+  			  </div>
+          
+          <!-- Email not yet implemented -->
+  			  <div class="col-xs-12">  			    
+      			<div class="form-group destination-email">
+      			  <p class="error-msg"></p>
+	            <div class="input-group">
+	              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+	              <input type="email" name="email" maxlength="100" required="" class="form-control" placeholder="<%- __('pages.encrypt.inputBox.emailPlaceholder') %>">
+	            </div>
+	          </div>
+	        </div>
+	        
+          <div class="col-xs-12"> 
+            <div class="form-group passphrase">
+              <p class="error-msg"></p>
+	            <div class="input-group">
+	              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+	              <input type="text" ref="password" id="password" maxlength="100" minlength="6" required="" class="form-control" placeholder="<%- __('pages.encrypt.inputBox.passphrasePlaceholder') %>">
+	            </div>
+	            <div class="strength-meter">
+	              <p id="possibilities"></p>
+	              <!-- p>Time to crack it -<i>hashed as MD5</i>- using an <strong>8 cores</strong> computer:
+	                <div id="rates"></div -->
+	              <a class="hidden" href="http://hashcat.net/oclhashcat/">What are this numbres</a>
+	            </div>
+              <a href="javascript:" id="generate-passphrase" class="link"><%= __('pages.encrypt.generateLink') %></a>
+	          </div>
+          </div>
+          
+          <div class="col-xs-12"> 
+    		    <div class="encrypt-actions">
+    		      <a class="button process"><i class="fa fa-lock"></i><%= __('pages.encrypt.buttonLock') %></a>
+    			    <!-- a class="button process"><i class="fa fa-paper-plane"></i>&nbsp;&nbsp;Send ninja email</a -->
+    		    </div>
+    		  </div>
+    		<input type="file" id="encrypt-input" name="files" class="hidden" multiple />
+  		</fieldset>
+  	</div>
+  	<% include ../partials/about.html %>
+  </div>
+  <% include ../partials/footer.html %>
+  <script>
+    var _files = [];  // Archivos originales
+    var _workingFiles = [];  // Archivos en que se está trabajando
+    var _completedFiles = [];
+    var _errorFiles = [];
+  	var _maxFiles = 5;
+  	var _seed = "<%= locals.seed %>";
+  	var _secret;
+  	var _msgId;
+  	var _tempPass;
+  	var _tempEmail;
+  	var _baseUrl = "<%= locals.baseUrl %>";
+    var locale = "<%= locals.getLocale() %>" || "en";
+    var browser = "<%= locals.compatibility %>"; // check compatible browser
+    if(browser !== 'oka') $('div[role="alert"]').removeClass('hidden');
+  </script>
+  <script async type="text/javascript" src="/js/encrypt.min.js"></script>
+  </body>
+</html>

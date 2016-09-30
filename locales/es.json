@@ -1,0 +1,79 @@
+{
+	"errors": {
+		"401": "401 - No autorizado",
+		"varNull": "Error chequeando campos. Parecería que uno de los campos es nulo 8(",
+		"invalidEmail": "No parace ser una dirección de correo electrónico válida",
+		"msgIdNull": "El Id del mensaje es nulo. Esto es extraño... 8(",
+		"404msg": "404 - Mensaje no encontrado",
+		"403msg": "403 - Prohibido. El mensaje no puede ser editado",
+		"401pass": "No autorizado. La contraseña es incorrecta"
+	},
+	"pages": {
+		"title": "Yasdapp envio seguro",
+		"compatibility": "<strong>Compatibilidad:</strong> para una mejor <span style='text-decoration: underline;'>experiencia de usuario</span> te recomendamos utilizar esta aplicación con <strong>Chrome</strong> o <strong>Firefox</strong>",
+		"encrypt": {
+			"fileBox": {
+				"dropFiles": "Tira tus archivos aquí, o click para seleccionarlos",
+				"up5": "<small>Hasta <strong>5 archivos</strong>, tamaño máximo <strong>5MB cada uno</strong></small>",
+				"noDuplicates": "<small>Carpetas y archivos duplicados no se permiten</small>"
+			},
+			"inputBox": {
+				"emailPlaceholder": "Ingresa una dirección de correo para enviar los archivos",
+				"passphrasePlaceholder": "Ingresa una contraseña segura (passphrase)"
+			},
+			"generateLink": "Generar una contraseña aleatoria",
+			"buttonLock": "Asegurar mis archivos",
+			"midHeader": {
+				"yasdapp": "<strong>Y</strong>et <strong>A</strong>nother <strong>S</strong>ecure <strong>D</strong>elivery <strong>App</strong>lication",
+				"slogan": "Una forma <strong>gratuita</strong>, <strong>simple</strong> y <strong>segura</strong> de enviar archivos cifrados a tus amigos y compañeros de trabajo"
+			},
+			"alerts": {
+				"successText": "<h2>Tus archivos se encuentran <strong>cifrados</strong> y <strong>asegurados</strong>!</h2><p>Enviamos un correo electrónico a <span id='email-account'></span> con el enlace: <a href='#' class='encrypted-files-link'></a></p><p class='encrypted-files-pass'>Se necesitará esta contraseña para descifrar los archivos: <span></span><br />No la pierdas porque no hay forma de acceder a tus archivos sin ella</p><p>Por favor no envies esta contraseña al mismo correo electrónico del destinatario. En lo posible trata de utilizar algún otro canal de comunicación como <i>Whatsapp</i>, <i>mensaje de texto (SMS)</i>, <i>llamada telefónica</i>, <i>personalmente (cerveza de por medio tal vez <b>;)</b> )</i></p>",
+				"linkGoBack": "¡Asegurar más archivos!"
+			},
+			"about": {
+				"q1_howWorks": "¿Cómo funciona?",
+				"a1": "Es realmente muy simple: <strong>primero</strong> selecciona los archivos que deseas encriptar y enviar (<i>hasta 5 archivos por ahora</i>). <strong>Segundo</strong>, ingresa el correo electrónico del destinatario. <strong>Tercero</strong> elige una contraseña y haz click en el botón '<i>Asegurar mis archivos</i>' Eso es todo. Simple ¿no? ¡<i>No te olvides la contraseña</i>! La vas a necesitar para desencriptar los archivos",
+				"q2_whyUse": "¿Por qué debería utilizarlo?",
+				"a2": "La mayoría de los <strong>canales de comunicación pueden ser monitoreados fácilmente por terceras partes</strong>, no solamente gobiernos sino también proveedores de Internet (ISP), tu competencia y prácticamente por cualquier persona con los conocimientos adecuados. <strong>Yasdapp</strong> te permite encriptar archivos sensibles de forma segura de manera que solo puedan ser accedidos conociendo la contraseña",
+				"q3_installSoftware": "¿Tengo que instalar software adicional para usarlo?",
+				"a3": "<strong>¡No!</strong> Por eso es tan simple de usar. No tienes que instalar nada. El cifrado de tus archivos se realiza del lado del cliente (<i>client-side</i>), en tu navegador. Y la contraseña que ingresas no viaja por Internet ni queda almacenada en ningún lugar. De esta forma solamente tú y a quien le pases la contraseña podrán acceder a los archivos",
+				"q4_fileDownloaded": "¿Qué pasa con los archivos luego de descargarlos?",
+				"a4": "Todos los archivos se <strong>eliminan automáticamente luego de 30 días</strong> de haber sido enviados. Yasdapp es un servicio para enviar archivos de la manera más segura posible, no es un servicio de almacenamiento en la nube como Dropbox o OneDrive o Google Drive, con lo cual nada se almacena de forma permanente. Y si quieres <strong>puedes eliminar tus archivos manualmente</strong> ingresando la contraseña adecuada en la página de descargas",
+				"q5_needObscure": "¿Es necesario que cambie el nombre y la extensión de mis archivos antes de enviarlos?",
+				"a5": "No te molestes, <strong>¡lo hacemos por vos!</strong>. Generamos un <strong>nombre aleatorio</strong> para cada uno de tus archivos. Además cambiamos el tipo a '<i>data/encrypted</i>' y la extensión a '<i>.encrypted</i>'. De esta forma nadie podrá intuir el contenido de tus archivos si logran adivinar la URL de la página de descarga. El usuario tiene que ingresar la contraseña correcta para ver las propiedades reales (nombre, tipo y extensión) de los archivos",
+				"q6_downloadAuto": "¿Los archivos se descargan automáticamente cuando un usuario ingresa a la URL de descarga?",
+				"a6": "<strong>Noo</strong>, aunque realmente no sería un problema ya que los archivos se encuentran cifrados. De todas formas solamente se descargan si el usuario ingresa la contraseña correcta",
+				"q7_rightPass": "¿Cómo saben si la contraseña para la descarga de archivos es correcta si Yasdapp no la conoce ni la almacena, y la contraseña nunca viaja por Internet?",
+				"a7": "Junto con tus archivos <strong>se cifra, también con tu contraseña, una llave generada aleatoriamente por nuestros servidores</strong>. En la URL de descarga probamos la contraseña ingresada contra la llave anteriormente cifrada. Luego comparamos el resultado con la cadena original. Si coinciden la contraseña ingresada es la correcta, mostramos entonces las propiedades reales de los archivos (nombre, tipo y extensión) e iniciamos la descarga de los archivos. El descifrado de los archivos se realiza del lado del cliente",
+				"q8_sendPass": "¿Es seguro enviar la contraseña por correo electrónico al destinatario de los archivos?",
+				"a8": "Puedes enviar la contraseña por correo pero por favor no utilices la misma dirección que la ingresada. Si la dirección que ingresaste como destinatario es de Hotmail trata de enviar la contraseña a una cuenta de Gmail por ejemplo, o Yahoo. Aún mejor, podrías utilizar SMS o Whatsapps para enviarla. O un llamado telefónico",
+				"q9_encryption": "¿Qué algoritmo de cifrado utilizan?",
+				"a9": "<strong><a href='https://es.wikipedia.org/wiki/Advanced_Encryption_Standard' target='_blank'>AES</a></strong>, también conocido como <strong>Rijndael</strong> (su nombre original), con una llave de 256 bits. No se conocen técnicas de criptoanálisis a la fecha capaz de romper este cifrado. Está oficialmente recomendado por variadas agencias de seguridad (incluyendo la <strong>NSA</strong>). Un ataque de <a href='https://es.wikipedia.org/wiki/Ataque_de_fuerza_bruta' target='_blank'>fuerza bruta</a> para encontrar la llave para descifrar los archivos podría llevar <strong>miles de millones de años</strong> con la tecnología promdio actual disponible",
+				"q10_aesKey": "¿Entonces AES utiliza una llave en lugar de una contraseña?",
+				"a10": "En realidad <strong>sí</strong>. AES es un algoritmo de <a href='https://es.wikipedia.org/wiki/Cifrado_por_bloques' target='_blank'>cifrado por bloques</a> que utiliza un <a href='https://es.wikipedia.org/wiki/Vector_de_inicializaci%C3%B3n' target='_blank'>vector de inicialización</a> <strong>(vi)</strong> y una llave. Yasdapp utiliza una función pseudo-aleatoria para generar el <strong>vi</strong>. Y para la llave se utiliza <a href='https://en.wikipedia.org/wiki/PBKDF2' target='_blank'>PBKDF2</a>, una <a href='https://en.wikipedia.org/wiki/Key_derivation_function' target='_blank'>función de derivación de llaves</a> que toma tu contraseña para generar una llave segura",
+				"q11_passphrase": "¿Cuán extensa y compleja debe ser la contraseña para el cifrado de mis archivos?",
+				"a11": "Una contraseña generalmente es <i>una palabra</i> compuesta por 10 o más letras, números o símbolos, o una combinación de ellos. Puede ser una cadena aleatoria como por ejemplo '<strong>N1@3!&O#$</strong>' o una simple palabra como '<strong>password</strong>'. En Yasdapp te alentamos a seleccionar <strong>una frase como contraseña</strong> (<i>passphrase</i>), con espacios como cualquier frase. Por ejemplo '<strong>Estas galletitas me están dando sed</strong>'. La frase puede contener símbolos, y no tiene por qué tener un significado definido. Las frases tienen mayor <a href='https://es.wikipedia.org/wiki/Entrop%C3%ADa_%28computaci%C3%B3n%29' target='_blank'>entropía</a> (lo que las hace más seguras) y son más fáciles de recordar. <a href='https://xkcd.com/936/' target='_blank'>Mirá esto</a>"
+			}
+		},
+		"decrypt": {
+			"alerts": {
+				"removed": "Este <strong>mensaje</strong> y todos sus archivos ha sido <strong>eliminado</strong>",
+				"secureMore": "Vuelve y ¡asegura más archivos!"
+			},
+			"fileName": "Nombre:",
+			"fileSize": "Tamaño:",
+			"fileType": "Tipo:",
+			"download": "Descargar",
+			"removeFiles": "Eliminar todos los archivos",
+			"btnUnlock": "Desbloquear mis archivos",
+			"inputBox": {
+				"passphrasePlaceholder": "Ingresa tu contraseña"
+			}
+		},
+		"footer": {
+			"get_in_touch": "Contactanos en Twitter ",
+			"made_in": "Hecho en <span style='font-weight:700'>ARG</span> por "
+		}
+	}
+}
