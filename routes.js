@@ -6,12 +6,7 @@ var ctrl = require('./controllers/messages');
 
 module.exports = function(app) {
 
-	app.get('*', function(req, res, next) {
-		// logger.info("------ req.headers: "+req.headers["accept-language"]); 
-		// logger.info("------ req.getLocale(): "+req.getLocale());
-		// logger.info("req.useragent: ",req.useragent) 
-		// logger.info("req.useragent.BROWSER: ",req.useragent.browser) // Chrome, Firefox, Safari
-		
+	app.get('*', function(req, res, next) {		
 		// Esto es por requests headless (sin encabezado)
 		if(typeof req.headers["accept-language"] == 'undefined') req.locale = 'en';
 		if(typeof req.locale == 'undefined' || (req.locale !== 'en' && req.locale !== 'es')) req.locale = 'en';

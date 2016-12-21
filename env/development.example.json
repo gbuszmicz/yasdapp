@@ -1,0 +1,35 @@
+{
+  "email": {
+    "_comment": "Used by the worker to send the emails to users",
+    "provider": "Mailgun",
+    "domain": "sandbox3423423423423423423.mailgun.org",
+    "api_key": "key-2342342342342342342342",
+    "account": "postmaster@sandbox3423423423423423423.mailgun.org",
+    "full_account": "Yasdapp Sandbox Notification <postmaster@sandbox3423423423423423423.mailgun.org>"
+  },
+  "mongodb": {
+    "_comment": "Db for storing all app info",
+    "url": "public.mongodb.com:12345",
+    "dbname": "testing-dbname",
+    "user": "testing-user",
+    "pass": "testingSecretPass",
+    "uri": "mongodb://testing-user:testingSecretPass@public.mongodb.com:12345/testing-dbname"
+  },
+  "s3": {
+    "_comment": "Used to store the encrypted files uploaded by users",
+    "accessKey": "JKSDFJASKDJAKSDJA",
+    "secretKey": "asdkjasldaujsodasdha9sa/JKSDFJASKDJAKSDJA/ajsdalsja",
+    "bucket": "yasdapp_bucket",
+    "bucketUrl": "https://s3.amazonaws.com/yasdapp_bucket"
+  },
+  "redis": {
+    "_comment": "Used to communicate the Web and the worker",
+    "host": "public.redis.com",
+    "port": "12345",
+    "pass": "jakslda7hajksda7j3310a",
+  },
+  "app": {
+    "_comment": "Just the app. localexample.com is an alias for 127.0.0.1 added in /etc/hosts file",
+    "domain": "http://localexample.com:5000"
+  }
+}

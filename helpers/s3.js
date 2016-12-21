@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var aws = require('aws-sdk');
-var config = require('../config.json');
+// var config = require('../config.json');
+var config = require('../env/'+process.env.NODE_ENV+'.json') || {};
 var logger = require('./logger');
 
 // Variables, constantes y configuraciones iniciales
